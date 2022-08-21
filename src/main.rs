@@ -6,7 +6,7 @@ use rand::prelude::*;
 
 
 use iced::{
-    button, text_input,  
+    button, text_input,  Button,
     Column, Container, Element, Length, Row,  Sandbox,
     Settings, Text, TextInput,
 };
@@ -196,7 +196,7 @@ impl Sandbox for Wordle {
 
                             }
                             else if self.words_tried.len() >= self.puzzle.max_tries{
-                                self.notification = String::from("You lose!");
+                                self.notification = String::from("You lose! The word was: ") + &self.puzzle.solution;
                                 self.toggle_new_game = true;
                             }
                             
